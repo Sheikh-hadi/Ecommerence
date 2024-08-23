@@ -4,7 +4,7 @@ import "./Card.css";
 const Card = ({ data }) => {
   console.log(data);
   return (
-    <Row justify={"center"} style={{margin:"10px 0px"}}>
+    <Row justify={"center"} style={{ margin: "10px 0px" }}>
       {data.map((product, index) => {
         return (
           <Col
@@ -27,7 +27,7 @@ const Card = ({ data }) => {
                 padding: "4px",
               }}
             >
-              -----
+              {product.title}
             </h2>
             <h4
               style={{
