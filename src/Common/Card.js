@@ -1,25 +1,62 @@
-import { Col, Row } from "antd";
+import { Button, Col, Image, Row } from "antd";
 import React from "react";
-
+import "./Card.css";
 const Card = ({ data }) => {
   console.log(data);
   return (
-    <Row style={{ border: "2px solid grey", background: "red" }}>
+    <Row justify={"center"} style={{margin:"10px 0px"}}>
       {data.map((product, index) => {
         return (
           <Col
+            className="card"
             xs={12}
             sm={24}
             md={8}
-            lg={6}
+            lg={5}
             key={index}
-            style={{ padding: "10px", border: "2px solid black", }}
+            style={{
+              padding: "20px",
+              border: "2px solid black",
+              margin: "10px",
+              borderRadius: "8px",
+            }}
           >
-            <img src="image.png" alt=""></img>
-            <h2>-----</h2>
-            <p>{product.price}</p>
-            <p>{product.description}</p>
-            <button> Add to Cart</button>
+            <Image src="download.jpeg" alt="Product Image" preview={false} />
+            <h2
+              style={{
+                padding: "4px",
+              }}
+            >
+              -----
+            </h2>
+            <h4
+              style={{
+                padding: "4px",
+              }}
+            >
+              `price:${product.price}`
+            </h4>
+            <p
+              style={{
+                padding: "4px",
+              }}
+            >
+              {product.description}
+            </p>
+            <Button
+              className="btn-card"
+              size={"large"}
+              block={true}
+              style={{
+                border: "2px solid grey",
+                background: "red",
+                color: "white",
+                fontSize: "18px",
+                borderRadius: "none",
+              }}
+            >
+              Add to Cart
+            </Button>
           </Col>
         );
       })}

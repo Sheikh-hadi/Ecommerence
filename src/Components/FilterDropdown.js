@@ -1,25 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Select } from "antd";
-
-const { Option } = Select;
+import categoryOptionList from "../Models/categoryOptionModel";
 
 const FilterDropdown = ({ handleCategoryChange }) => {
+  // console.log("categoryOptionList: ", categoryOptionList);
+  const [value, setValue] = useState("all");
+  handleCategoryChange(value);
   const handleChange = (value) => {
     console.log(`selected ${value}`);
-    handleCategoryChange(value); // Call the passed function
+    setValue(value);
   };
 
   return (
     <Select
-      defaultValue="Electronics" // Default value
-      style={{ width: 120 }}
-      onChange={handleChange} // Handle change
-    >
-      <Option value="1">Electronics</Option>
-      <Option value="2">Clothing</Option>
-      <Option value="3">Home Appliances</Option>
-      <Option value="4">Books</Option>
-    </Select>
+      defaultValue="all"
+      style={{
+        width: 120,
+      }}
+      onChange={handleChange}
+      options={categoryOptionList}
+    />
   );
 };
 
