@@ -7,7 +7,7 @@ const Category = ({ category }) => {
   console.log("category: ", category);
   let currentCategories;
 
-  if (category == "all") {
+  if (category === "all") {
     currentCategories = categoriesList;
   } else {
     currentCategories = categoriesList.filter(
